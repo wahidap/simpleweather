@@ -61,23 +61,69 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       backgroundColor: Colors.brown,
+  //       title: Text('Weather App'),
+  //     ),
+  //     body:  Container(
+  //       decoration: BoxDecoration(
+  //         image: DecorationImage(image:AssetImage('assets/IMG_7141.png'),
+  //         fit: BoxFit.cover),
+          
+  //       ),
+  //         child: Center(
+  //           child: weather != null
+  //               ? Column(
+  //                   mainAxisAlignment: MainAxisAlignment.center,
+  //                   children: [
+  //                     Text(
+  //                       'City: ${weather!.cityName}',
+  //                       style: TextStyle(fontSize: 18),
+  //                     ),
+  //                     Text(
+  //                       'Temperature: ${weather!.temperature}°C',
+  //                       style: TextStyle(fontSize: 18),
+  //                     ),
+  //                     Text(
+  //                       'Description: ${weather!.description}',
+  //                       style: TextStyle(fontSize: 18),
+  //                     ),
+  //                   ],
+  //                 )
+  //               : CircularProgressIndicator(),
+                
+  //         ),
+  //       ),
+  //     floatingActionButton: FloatingActionButton(
+
+  //      backgroundColor: Colors.brown,
+  //       onPressed: fetchWeatherByLocation,
+  //       tooltip: 'Refresh',
+  //       child: Icon(Icons.refresh),
+  //     ),
+
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(1, 255, 255, 255),
-        elevation: 0,
-        title: Text('Weather App'),
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-                'https://www.google.com/url?sa=i&url=https%3A%2F%2Fdev.to%2Fcscarpitta%2Fcreating-a-simple-weather-app-with-python-and-flask-5bpd&psig=AOvVaw0z_Qk5G7T8tGFPzyBe5nE5&ust=1701898770294000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCMC4go-h-YIDFQAAAAAdAAAAABAJ'), // Replace with your image path
-            fit: BoxFit.cover,
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      backgroundColor: Colors.brown,
+      title: Text('Weather App'),
+    ),
+    body: Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/IMG_7141.png'),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
-        child: Center(
+        Center(
           child: weather != null
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -93,17 +139,42 @@ class _MyHomePageState extends State<MyHomePage> {
                     Text(
                       'Description: ${weather!.description}',
                       style: TextStyle(fontSize: 18),
+                      
                     ),
                   ],
                 )
               : CircularProgressIndicator(),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: fetchWeatherByLocation,
-        tooltip: 'Refresh',
-        child: Icon(Icons.refresh),
-      ),
-    );
-  }
+        // // Add more pictures above the background image
+        // Positioned(
+        //   top: 53,
+        //   left: 34,
+        //   child: Image.asset(
+        //     'assets/Frame 2.png',
+        //     width: 300,
+        //     height: 280,
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
+        Positioned(
+          top: 474,
+          left: 34,
+          child: Image.asset(
+            'assets/Frame 3.png',
+            width: 300,
+            height: 150,
+            fit: BoxFit.cover,
+          ),
+        ),
+        // Add more Positioned widgets for additional images
+      ],
+    ),
+    floatingActionButton: FloatingActionButton(
+      backgroundColor: Colors.brown,
+      onPressed: fetchWeatherByLocation,
+      tooltip: 'Refresh',
+      child: Icon(Icons.refresh),
+    ),
+  );
+}
 }

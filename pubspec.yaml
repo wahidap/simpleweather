@@ -93,3 +93,5 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/IMG_7141.png
+    - assets/Frame 2.png
+    - assets/Frame 3.png
